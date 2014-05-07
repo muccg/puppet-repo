@@ -11,6 +11,7 @@ class repo::ccgtesting() {
 
 
 class repo::ccgtesting::setup() {
+  include repo::ccgcentos
 
   exec {'ccg repo disable':
     command => "/bin/sed -i -e 's/^enabled[ ]*=[ ]*1.*/enabled=0/i' ccg.repo",
