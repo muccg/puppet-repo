@@ -15,8 +15,11 @@ class repo::hpacucli::setup($arch = 'x86_64', $priority = '90') {
 
   $release = $::majdistrelease
 
-  yumrepo {'hpacucli':
-    priority   => $priority,
-    baseurl    => "deb http://bpamirror:81/hpa ./"
+  apt::source{'hpacucli':
+    key         => 'E084DAB9',
+    location    => 'http://bpamirror:81/hpa',
+    release     => './',
+    repos       => '',
+    include_src => false,
   }
 }
