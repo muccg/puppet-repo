@@ -1,6 +1,6 @@
 #
 class repo::update {
-  include common
+  include ccgcommon
 
   case $::operatingsystem {
 

@@ -9,7 +9,7 @@ class repo::ccgcentos() {
 
 
 class repo::ccgcentos::setup() {
-  include common
+  include ccgcommon
 
   $release = $::majdistrelease
   $ccg_release_rpm = "ccg-release-${release}-2"

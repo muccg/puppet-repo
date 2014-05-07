@@ -10,7 +10,7 @@ class repo::packages () {
 
 class repo::packages::setup () {
 
-  include common
+  include ccgcommon
 
   case $::osfamily {
 

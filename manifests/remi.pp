@@ -11,7 +11,7 @@ class repo::remi($arch='x86_64', $priority='80') {
 
 
 class repo::remi::setup($arch='x86_64', $priority='80') {
-  include common
+  include ccgcommon
 
   $release = $::majdistrelease
 

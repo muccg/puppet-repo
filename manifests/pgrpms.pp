@@ -12,7 +12,7 @@ class repo::pgrpms($priority='20') {
 
 
 class repo::pgrpms::setup($priority='20') {
-  include common
+  include ccgcommon
 
   case $::operatingsystem {
     'RedHat': {

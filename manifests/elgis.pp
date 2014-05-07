@@ -12,7 +12,7 @@ class repo::elgis($priority='20') {
 
 
 class repo::elgis::setup($priority='20') {
-  include common
+  include ccgcommon
 
   $url = $::majdistrelease ? {
     '5' => 'http://elgis.argeo.org/repos/5/elgis-release-5-5_0.noarch.rpm',

@@ -17,7 +17,7 @@ class repo::erlang($arch='x86_64', $priority='90') {
 
 
 class repo::erlang::setup($arch = 'x86_64', $priority = '90') {
-  include common
+  include ccgcommon
 
   $release = $::majdistrelease
 

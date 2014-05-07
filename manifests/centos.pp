@@ -11,7 +11,7 @@ class repo::centos($arch='x86_64', $priority='99') {
 
 
 class repo::centos::setup($arch = 'x86_64', $priority = '99') {
-  include common
+  include ccgcommon
 
   $release = $::majdistrelease
 
