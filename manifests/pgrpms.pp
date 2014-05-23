@@ -6,7 +6,6 @@ class repo::pgrpms() {
 
   class { 'repo::pgrpms::setup':
     stage    => 'setup',
-    priority => $priority,
   }
 }
 
