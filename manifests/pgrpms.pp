@@ -1,7 +1,7 @@
 # @name :
 # @desc :
 # @info :  In case we don't want to use aws postgresql rpms
-class repo::pgrpms($priority='20') {
+class repo::pgrpms() {
   include stdlib
 
   class { 'repo::pgrpms::setup':
@@ -11,7 +11,7 @@ class repo::pgrpms($priority='20') {
 }
 
 
-class repo::pgrpms::setup($priority='20') {
+class repo::pgrpms::setup() {
   include ccgcommon
 
   case $::operatingsystem {
@@ -54,6 +54,4 @@ class repo::pgrpms::setup($priority='20') {
     provider => 'rpm',
     source   => $url
   }
-
-  yumrepo {'pgdg93': priority => $priority, require => Package['pgrpms'] }
 }
