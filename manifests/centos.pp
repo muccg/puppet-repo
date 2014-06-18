@@ -17,19 +17,16 @@ class repo::centos::setup($arch = 'x86_64', $priority = '99') {
 
   yumrepo {'base':
     priority   => $priority,
-    baseurl    => 'absent',
-    mirrorlist => "http://mirrorlist.centos.org/?release=${release}&arch=${arch}&repo=os"
+    baseurl    => "http://mirror.aarnet.edu.au/pub/centos/${release}/os/${arch}/"
   }
 
   yumrepo {'updates':
     priority   => $priority,
-    baseurl    => 'absent',
-    mirrorlist => "http://mirrorlist.centos.org/?release=${release}&arch=${arch}&repo=updates"
+    baseurl    => "http://mirror.aarnet.edu.au/pub/centos/${release}/updates/${arch}/"
   }
 
   yumrepo {'extras':
     priority   => $priority,
-    baseurl    => 'absent',
-    mirrorlist => "http://mirrorlist.centos.org/?release=${release}&arch=${arch}&repo=extras"
+    baseurl    => "http://mirror.aarnet.edu.au/pub/centos/${release}/extras/${arch}/"
   }
 }
