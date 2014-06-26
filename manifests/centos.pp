@@ -22,11 +22,11 @@ class repo::centos::setup($arch = 'x86_64', $priority = '99') {
 
   yumrepo {'updates':
     priority   => $priority,
-    baseurl    => "http://mirror.aarnet.edu.au/pub/centos/${release}/updates/${arch}/"
+    baseurl    => "http://ftp.swin.edu.au/centos/${release}/updates/${arch}/"
   }
 
   yumrepo {'extras':
     priority   => $priority,
-    baseurl    => "http://mirror.aarnet.edu.au/pub/centos/${release}/extras/${arch}/"
+    baseurl    => "http://ftp.swin.edu.au/centos/${release}/extras/${arch}/"
   }
 }
