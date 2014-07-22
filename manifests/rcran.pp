@@ -1,5 +1,5 @@
 #
-class repo::rcran($release='saucy') {
+class repo::rcran($release=$lsbdistcodename) {
   include stdlib
 
   class { 'repo::rcran::setup':
