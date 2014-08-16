@@ -1,5 +1,5 @@
 #
-class repo::multiverseubuntu($release='saucy') {
+class repo::multiverseubuntu($release=$lsbdistcodename) {
   include stdlib
 
   class { 'repo::multiverseubuntu::setup':
@@ -11,21 +11,21 @@ class repo::multiverseubuntu($release='saucy') {
 
 class repo::multiverseubuntu::setup ($release) {
 
-  apt::source { 'ubuntu_archive_saucy':
+  apt::source { "ubuntu_archive_${release}":
     location        => 'http://nova.clouds.archive.ubuntu.com/ubuntu/',
     release         => $release,
     repos           => 'multiverse',
     include_src     => false
   }
 
-  apt::source { 'ubuntu_archive_saucy-updates':
+  apt::source { "ubuntu_archive_${release}-updates":
     location        => 'http://nova.clouds.archive.ubuntu.com/ubuntu/',
     release         => "${release}-updates",
     repos           => 'multiverse',
     include_src     => false
   }
 
-  apt::source { 'ubuntu_archive_saucy-security':
+  apt::source { "ubuntu_archive_${release}-security":
     location        => 'http://nova.clouds.archive.ubuntu.com/ubuntu/',
     release         => "${release}-security",
     repos           => 'multiverse',
