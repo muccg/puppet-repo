@@ -29,16 +29,10 @@ class repo::packages::setup () {
           fail ("repo::packages: ${::osfamily} ${::majdistrelease} is not supported.")
         }
       }
+
+      package { $packages: ensure => installed }
     }
 
-    'Ubuntu', 'Debian' : {
-      $packages = 'unattended-upgrades'
-    }
-
-    default: {
-      fail ("repo::packages: ${::osfamily} is not supported.")
-    }
   }
 
-  package { $packages: ensure => installed }
 }

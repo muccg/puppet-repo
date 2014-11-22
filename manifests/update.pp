@@ -1,19 +1,11 @@
 #
 class repo::update {
-  include ccgcommon
 
   case $::operatingsystem {
 
-    # not really sure of a good way to do this for ubuntu
-    # this should be considered a place holder
     'Ubuntu', 'Debian' : {
-      exec { 'unattended-upgrade':
-        command   => 'unattended-upgrade || true',
-        provider  => 'shell',
-        logoutput => true,
-        timeout   => 0,
-        require   => Package['unattended-upgrades'],
-      }
+      include apt::unattended_upgrades
+      include apt::update
     }
 
     'CentOS' : {

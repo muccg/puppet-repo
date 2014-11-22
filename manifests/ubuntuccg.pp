@@ -1,3 +1,4 @@
+#
 class repo::ubuntuccg($arch='x86_64', $priority='90') {
   include stdlib
 
