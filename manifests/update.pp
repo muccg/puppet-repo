@@ -1,11 +1,14 @@
 #
 class repo::update {
+  include stdlib 
 
   case $::operatingsystem {
 
     'Ubuntu', 'Debian' : {
       include apt::unattended_upgrades
-      include apt::update
+      class { 'apt::update':
+        stage => 'setup',
+      }
     }
 
     'CentOS' : {

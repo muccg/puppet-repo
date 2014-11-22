@@ -3,6 +3,7 @@ class repo (
   $proxy_host = false,
   $proxy_port = '3128',
   ) {
+  include stdlib
   include repo::packages
 
   case $::osfamily {
