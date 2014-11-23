@@ -21,6 +21,7 @@ class repo::update {
 
 class repo::update::yum-check-update {
   exec { 'yum check-update':
-    command => '/usr/bin/yum check-update'
+    command => '/usr/bin/yum check-update',
+    returns => ['0', '100'],
   }
 }
