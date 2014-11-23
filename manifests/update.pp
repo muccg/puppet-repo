@@ -6,13 +6,15 @@ class repo::update {
 
     'Ubuntu', 'Debian' : {
       class { 'apt::update':
-        stage => 'setup',
+        stage   => 'setup',
+        require => Class['::repo'],
       }
     }
 
     'RedHat', 'CentOS' : {
       class { 'repo::update::yum-check-update':
-        stage => 'setup',
+        stage   => 'setup',
+        require => Class['::repo'],
       }
     }
   }

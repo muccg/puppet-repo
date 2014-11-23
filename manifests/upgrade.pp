@@ -7,13 +7,15 @@ class repo::upgrade {
 
     'Ubuntu', 'Debian' : {
       class { 'repo::upgrade::apt-upgrade':
-        stage => 'setup',
+        stage   => 'setup',
+        require => Class['::repo'],
       }
     }
 
     'RedHat', 'CentOS' : {
       class { 'repo::upgrade::yum-update':
-        stage => 'setup',
+        stage   => 'setup',
+        require => Class['::repo'],
       }
     }
   }
