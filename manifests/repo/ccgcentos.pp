@@ -1,5 +1,5 @@
 #
-class repo::ccgcentos() {
+class repo::repo::ccgcentos() {
   include stdlib
 
   class { 'repo::ccgcentos::setup':
@@ -8,7 +8,7 @@ class repo::ccgcentos() {
 }
 
 
-class repo::ccgcentos::setup() {
+class repo::repo::ccgcentos::setup() {
   include ccgcommon
 
   $release = $::majdistrelease

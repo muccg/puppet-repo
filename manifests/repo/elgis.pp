@@ -1,17 +1,17 @@
 # @name :
 # @desc :
 # @info :
-class repo::elgis($priority='20') {
+class repo::repo::elgis($priority='20') {
   include stdlib
 
-  class { 'repo::elgis::setup':
+  class { 'repo::repo::elgis::setup':
     stage    => 'setup',
     priority => $priority,
   }
 }
 
 
-class repo::elgis::setup($priority='20') {
+class repo::repo::elgis::setup($priority='20') {
   include ccgcommon
 
   $url = $::majdistrelease ? {

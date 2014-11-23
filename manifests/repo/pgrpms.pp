@@ -1,16 +1,16 @@
 # @name :
 # @desc :
 # @info :  In case we don't want to use aws postgresql rpms
-class repo::pgrpms() {
+class repo::repo::pgrpms() {
   include stdlib
 
-  class { 'repo::pgrpms::setup':
+  class { 'repo::repo::pgrpms::setup':
     stage    => 'setup',
   }
 }
 
 
-class repo::pgrpms::setup() {
+class repo::repo::pgrpms::setup() {
   include ccgcommon
 
   case $::operatingsystem {

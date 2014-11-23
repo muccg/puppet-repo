@@ -1,15 +1,15 @@
 #
-class repo::rdebian($release='stable') {
+class repo::repo::rdebian($release='stable') {
   include stdlib
 
-  class { 'repo::rdebian::setup':
+  class { 'repo::repo::rdebian::setup':
     stage   => 'setup',
     release => $release,
   }
 }
 
 
-class repo::rdebian::setup ($release) {
+class repo::repo::rdebian::setup ($release) {
 
   apt::source{'r-debian':
     key         => 'B26DD379',

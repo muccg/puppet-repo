@@ -1,14 +1,14 @@
 #
-class repo::ubuntuccg($arch='x86_64', $priority='90') {
+class repo::repo::ubuntuccg($arch='x86_64', $priority='90') {
   include stdlib
 
-  class { 'repo::ubuntuccg::setup':
+  class { 'repo::repo::ubuntuccg::setup':
     stage    => 'setup',
   }
 }
 
 
-class repo::ubuntuccg::setup() {
+class repo::repo::ubuntuccg::setup() {
 
   apt::key { 'ccg':
     key        => 'D50582E6',

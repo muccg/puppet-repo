@@ -1,8 +1,8 @@
 
-class repo::hpacucli($arch='x86_64', $priority='90') {
+class repo::repo::hpacucli($arch='x86_64', $priority='90') {
   include stdlib
 
-  class { 'repo::hpacucli::setup':
+  class { 'repo::repo::hpacucli::setup':
     stage    => 'setup',
     priority => $priority,
     arch     => $arch
@@ -10,7 +10,7 @@ class repo::hpacucli($arch='x86_64', $priority='90') {
 }
 
 
-class repo::hpacucli::setup($arch = 'x86_64', $priority = '90') {
+class repo::repo::hpacucli::setup($arch = 'x86_64', $priority = '90') {
   include ccgcommon
 
   $release = $::majdistrelease

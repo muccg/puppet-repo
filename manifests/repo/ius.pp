@@ -1,8 +1,8 @@
 #
-class repo::ius($arch='x86_64', $priority='20') {
+class repo::repo::ius($arch='x86_64', $priority='20') {
   include stdlib
 
-  class { 'repo::ius::setup':
+  class { 'repo::repo::ius::setup':
     stage    => 'setup',
     priority => $priority,
     arch     => $arch
@@ -10,7 +10,7 @@ class repo::ius($arch='x86_64', $priority='20') {
 }
 
 
-class repo::ius::setup($arch='x86_64', $priority='20') {
+class repo::repo::ius::setup($arch='x86_64', $priority='20') {
   # there is an ius-release RPM available but it has a dependency on
   # the epel-release package being installed. Since we use the
   # stahnma-epel puppet module, this dependency would never be
