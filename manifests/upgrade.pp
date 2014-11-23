@@ -8,14 +8,14 @@ class repo::upgrade {
     'Ubuntu', 'Debian' : {
       class { 'repo::upgrade::apt-upgrade':
         stage   => 'setup',
-        require => Class['::repo'],
+        require => Class['::repo::setup'],
       }
     }
 
     'RedHat', 'CentOS' : {
       class { 'repo::upgrade::yum-update':
         stage   => 'setup',
-        require => Class['::repo'],
+        require => Class['::repo::setup'],
       }
     }
   }

@@ -3,6 +3,18 @@ class repo (
   $proxy_host = false,
   $proxy_port = '3128',
   ) {
+
+  class { 'repo::setup':
+    proxy_host => $proxy_host,
+    proxy_port => $proxy_port,
+    stage      => 'setup',
+  }
+}
+
+class repo::setup (
+  $proxy_host = false,
+  $proxy_port = '3128',
+  ) {
   include stdlib
 
   case $::osfamily {
@@ -11,7 +23,6 @@ class repo (
       class { 'apt':
         proxy_host => $proxy_host,
         proxy_port => $proxy_port,
-        stage      => 'setup'
       }
       include apt::unattended_upgrades
     }
@@ -41,7 +52,6 @@ class repo (
         options     => $yum_options,
         cron_param  => $cron_options,
         cron_mailto => 'root@localhost',
-        stage       => setup,
       }
     }
   }
