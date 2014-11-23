@@ -29,11 +29,12 @@ class repo (
         }
       }
 
-      $yum_options = {}
       if ($proxy_host) {
         $yum_options = {
           proxy => "http://${proxy_host}:${proxy_port}",
         }
+      } else {
+        $yum_options = {}
       }
 
       class { 'yum':
