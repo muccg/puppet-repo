@@ -24,7 +24,7 @@ class repo::upgrade::yum-update (
   $yum_options = '--disablerepo=ccg*',
   ) {
   exec { 'yum update':
-    command => "yum -y -q ${yum_options} update"
+    command => "/usr/bin/yum -y -q ${yum_options} update"
   }
 }
 
@@ -33,6 +33,6 @@ class repo::upgrade::apt-upgrade(
   $apt_options = '',
   ) {
   exec { 'apt upgrade':
-    command => "apt-get -y -q ${apt_options} upgrade"
+    command => "/usr/bin/apt-get -y -q ${apt_options} upgrade"
   }
 }
