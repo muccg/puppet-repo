@@ -14,9 +14,6 @@ class repo (
         stage      => 'setup'
       }
       include apt::unattended_upgrades
-      class { 'apt::update':
-        stage => 'setup',
-      }
     }
 
     'RedHat', 'CentOS' : {
