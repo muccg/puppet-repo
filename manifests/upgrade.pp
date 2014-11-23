@@ -1,11 +1,12 @@
 #
-class repo::update {
+class repo::upgrade {
   include stdlib
+  include repo::update
 
   case $::osfamily {
 
     'Ubuntu', 'Debian' : {
-      class { 'apt::update':
+      class { 'repo::upgrade::apt-upgrade':
         stage => 'setup',
       }
     }
@@ -24,5 +25,14 @@ class repo::upgrade::yum-update (
   ) {
   exec { 'yum update':
     command => "yum -y -q ${yum_options} update"
+  }
+}
+
+
+class repo::upgrade::apt-upgrade(
+  $apt_options = '',
+  ) {
+  exec { 'apt upgrade':
+    command => "apt-get -y -q ${apt_options} upgrade"
   }
 }
