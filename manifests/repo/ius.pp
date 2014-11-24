@@ -21,7 +21,7 @@ class repo::repo::ius::setup($arch='x86_64', $priority='20') {
 
   yum::managed_yumrepo { 'ius-source':
     descr          => "IUS Community Packages for Enterprise Linux 6 - ${arch} - Source",
-    mirrorlist     => "http://dmirr.iuscommunity.org/mirrorlist/?repo=ius-centos${::majdistrelease}&arch=source",
+    mirrorlist     => "http://dmirr.iuscommunity.org/mirrorlist/?repo=ius-centos6-source&arch=source",
     enabled        => 0,
     gpgcheck       => 0,
   }
