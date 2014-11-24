@@ -52,6 +52,7 @@ class repo::setup (
         options     => $yum_options,
         cron_param  => $cron_options,
         cron_mailto => 'root@localhost',
+        clean_repos => true,
       }
     }
   }
