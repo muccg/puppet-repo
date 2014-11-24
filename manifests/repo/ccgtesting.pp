@@ -1,29 +1,20 @@
-# Using this class disables the ccg release repo and enables the
-# ccg-testing repo.
-# This would be useful for staging setups.
-class repo::repo::ccgtesting() {
+#
+class repo::repo::ccgtesting($priority='70') {
   include stdlib
 
   class { 'repo::repo::ccgtesting::setup':
-    stage => 'setup',
+    priority => $priority,
+    stage    => 'setup',
   }
 }
 
 
-class repo::repo::ccgtesting::setup() {
-  include repo::repo::ccgcentos
-
-  exec {'ccg repo disable':
-    command => "/bin/sed -i -e 's/^enabled[ ]*=[ ]*1.*/enabled=0/i' ccg.repo",
-    onlyif  => "/bin/grep -i '^enabled=1' ccg.repo",
-    cwd     => '/etc/yum.repos.d',
-    require => Class['repo::repo::ccgcentos']
-  }
-
-  exec {'ccg testing repo enable':
-    command => "/bin/sed -i -e 's/^enabled[ ]*=[ ]*0.*/enabled=1/i' ccg-testing.repo",
-    onlyif  => "/bin/grep -i '^enabled=0' ccg-testing.repo",
-    cwd     => '/etc/yum.repos.d',
-    require => Class['repo::repo::ccgcentos']
+class repo::repo::ccgtesting::setup($priority='70') {
+  yum::managed_yumrepo { 'ccg':
+    descr          => 'CCG Packages for Enterprise Linux 6 - Testing - $basearch',
+    baseurl        => 'http://repo.ccgapps.com.au/repo/ccg/centos/6_testing/os/$basearch',
+    enabled        => 1,
+    gpgcheck       => 0,
+    priority       => $priority,
   }
 }

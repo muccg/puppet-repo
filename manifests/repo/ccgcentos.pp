@@ -1,28 +1,22 @@
 #
-class repo::repo::ccgcentos() {
+class repo::repo::ccgcentos($priority='70') {
   include stdlib
 
   class { 'repo::ccgcentos::setup':
+    priority => $priority,
     stage    => 'setup',
   }
 }
 
 
-class repo::repo::ccgcentos::setup() {
-  include ccgcommon
+class repo::repo::ccgcentos::setup($priority='70') {
 
-  $release = $::majdistrelease
-  $ccg_release_rpm = "ccg-release-${release}-2"
-  $ccg_release_url = "http://repo.ccgapps.com.au/repo/ccg/centos/${release}/os/noarch/CentOS/RPMS/${ccg_release_rpm}.noarch.rpm"
-
-  package { 'ccg-release':
-      ensure => purged
-  } ->
-
-  package { $ccg_release_rpm:
-    ensure   => present,
-    alias    => 'ccg-release-install',
-    source   => $ccg_release_url,
-    provider => rpm
+  yum::managed_yumrepo { 'ccg':
+    descr          => 'CCG Packages for Enterprise Linux 6 - $basearch',
+    baseurl        => 'http://repo.ccgapps.com.au/repo/ccg/centos/6/os/$basearch',
+    enabled        => 1,
+    gpgcheck       => 0,
+    priority       => $priority,
   }
+
 }
