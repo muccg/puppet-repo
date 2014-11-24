@@ -2,7 +2,7 @@
 class repo::repo::ccgcentos($priority='70') {
   include stdlib
 
-  class { 'repo::ccgcentos::setup':
+  class { 'repo::repo::ccgcentos::setup':
     priority => $priority,
     stage    => 'setup',
   }
