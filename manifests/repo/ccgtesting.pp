@@ -17,4 +17,8 @@ class repo::repo::ccgtesting::setup($priority='70') {
     gpgcheck       => 0,
     priority       => $priority,
   }
+
+  if defined(Class['repo::update::yum-check-update']) {
+    Class['repo::repo::ccgtesting::setup'] -> Class['repo::update::yum-check-update']
+  }
 }

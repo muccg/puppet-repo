@@ -26,4 +26,8 @@ class repo::repo::ius::setup($arch='x86_64', $priority='20') {
     gpgcheck       => 0,
   }
 
+  if defined(Class['repo::update::yum-check-update']) {
+    Class['repo::repo::ius::setup'] -> Class['repo::update::yum-check-update']
+  }
+
 }

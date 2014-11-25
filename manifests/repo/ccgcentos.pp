@@ -19,4 +19,8 @@ class repo::repo::ccgcentos::setup($priority='70') {
     priority       => $priority,
   }
 
+  if defined(Class['repo::update::yum-check-update']) {
+    Class['repo::repo::ccgcentos::setup'] -> Class['repo::update::yum-check-update']
+  }
+
 }
