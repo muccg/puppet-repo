@@ -61,7 +61,7 @@ class repo::setup (
 
 class repo::sydney {
   class { '::repo':
-    proxy_host => 'ccg-syd-nginx-staging.ec2.ccgapps.com.au',
+    proxy_host => 'proxy-syd.ec2.ccgapps.com.au',
     proxy_port => 3128,
   }
 }
