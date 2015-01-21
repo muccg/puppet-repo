@@ -14,7 +14,7 @@ class repo::repo::rdebian::setup ($release) {
   apt::source{'r-debian':
     key         => 'B26DD379',
     location    => 'http://debian-r.debian.net/debian-r/',
-    release     => 'unstable',
+    release     => $release,
     repos       => 'main',
     include_src => false,
   }
