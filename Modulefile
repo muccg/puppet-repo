@@ -1,5 +1,5 @@
 name         'muccg-repo'
-version      '1.2.17'
+version      '1.2.18'
 
 author       'Centre for Comparative Genomics'
 license      'GNU GPL Version 3'
