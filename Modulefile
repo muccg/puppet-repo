@@ -1,5 +1,5 @@
 name         'muccg-repo'
-version      '1.2.18'
+version      '1.2.19'
 
 author       'Centre for Comparative Genomics'
 license      'GNU GPL Version 3'
@@ -9,5 +9,5 @@ summary      'Puppet module for repo related tasks across CCG hosts'
 description  'Various repos, Ubuntu and CentOS.'
 
 dependency 'puppetlabs/stdlib', '>=3.2.1 <5.0.0'
-dependency 'puppetlabs/apt', '>=1.6.0 <2.0.0'
+dependency 'puppetlabs/apt', '>=1.8.0 <2.0.0'
 dependency 'example42/yum', '>=2.1.17 <3.0.0'
