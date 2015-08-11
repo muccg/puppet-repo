@@ -1,15 +1,6 @@
 #
-class repo::repo::multiverseubuntu($release=$lsbdistcodename) {
+class repo::multiverseubuntu($release=$lsbdistcodename) {
   include stdlib
-
-  class { 'repo::repo::multiverseubuntu::setup':
-    stage   => 'setup',
-    release => $release,
-  }
-}
-
-
-class repo::repo::multiverseubuntu::setup ($release) {
 
   apt::source { "ubuntu_archive_${release}":
     location        => 'http://nova.clouds.archive.ubuntu.com/ubuntu/',

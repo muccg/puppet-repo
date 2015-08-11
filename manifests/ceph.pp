@@ -1,15 +1,6 @@
 #
-class repo::repo::ceph($arch='x86_64', $priority='90') {
+class repo::ceph() {
   include stdlib
-
-  class { 'repo::repo::ceph::setup':
-    stage    => 'setup',
-  }
-}
-
-
-class repo::repo::ceph::setup() {
-  include ccgcommon
 
   $release             = 'firefly'
   $apt_key_source      = 'https://ceph.com/git/?p=ceph.git;a=blob_plain;f=keys/release.asc'

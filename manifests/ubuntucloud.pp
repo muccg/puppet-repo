@@ -1,15 +1,6 @@
 #
-class repo::repo::ubuntucloud($arch='x86_64', $priority='90') {
+class repo::ubuntucloud() {
   include stdlib
-
-  class { 'repo::repo::ubuntucloud::setup':
-    stage    => 'setup',
-  }
-}
-
-
-class repo::repo::ubuntucloud::setup() {
-  include ccgcommon
 
   $release = $::majdistrelease
 

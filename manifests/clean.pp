@@ -5,17 +5,11 @@ class repo::clean {
   case $::osfamily {
 
     'Ubuntu', 'Debian' : {
-      class { 'repo::clean::apt-clean':
-        stage   => 'setup',
-        require => Class['::repo::setup'],
-      }
+      include repo::clean::apt-clean
     }
 
     'RedHat', 'CentOS' : {
-      class { 'repo::clean::yum-clean':
-        stage   => 'setup',
-        require => Class['::repo::setup'],
-      }
+      include repo::clean::yum-clean
     }
   }
 }

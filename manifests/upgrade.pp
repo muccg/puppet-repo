@@ -6,17 +6,11 @@ class repo::upgrade {
   case $::osfamily {
 
     'Ubuntu', 'Debian' : {
-      class { 'repo::upgrade::apt-upgrade':
-        stage   => 'setup',
-        require => Class['::repo::setup'],
-      }
+      include repo::upgrade::apt-upgrade
     }
 
     'RedHat', 'CentOS' : {
-      class { 'repo::upgrade::yum-update':
-        stage   => 'setup',
-        require => Class['::repo::setup'],
-      }
+      include repo::upgrade::yum-update
     }
   }
 }

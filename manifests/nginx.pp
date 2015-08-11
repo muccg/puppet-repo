@@ -1,14 +1,6 @@
 #
-class repo::repo::nginx() {
+class repo::nginx() {
   include stdlib
-
-  class { 'repo::repo::nginx::setup':
-    stage   => 'setup',
-  }
-}
-
-
-class repo::repo::nginx::setup() {
 
   apt::key { 'nginx':
     key        => '7BD9BF62',

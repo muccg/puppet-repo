@@ -1,18 +1,6 @@
-# @name :
-# @desc :
-# @info :
-class repo::repo::elgis($priority='20') {
+#
+class repo::elgis($priority='20') {
   include stdlib
-
-  class { 'repo::repo::elgis::setup':
-    stage    => 'setup',
-    priority => $priority,
-  }
-}
-
-
-class repo::repo::elgis::setup($priority='20') {
-  include ccgcommon
 
   $url = $::majdistrelease ? {
     '5' => 'http://elgis.argeo.org/repos/5/elgis-release-5-5_0.noarch.rpm',
