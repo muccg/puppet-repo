@@ -12,8 +12,6 @@ bugtracker_url=http://bugs.centos.org/set_project.php?project_id=19&ref=http://b
 distroverpkg=centos-release
 # metadata_expire=90m
 
-# Disable the HTTP Proxy for now
-# Currently set to http://proxy-syd.ec2.ccgapps.com.au:3128 but it times out
-#<% @options.each_pair do |key, value| %>
-#<%= key %>=<%= value %>
-#<% end %>
+<% @options.each_pair do |key, value| %>
+<%= key %>=<%= value %>
+<% end %>
